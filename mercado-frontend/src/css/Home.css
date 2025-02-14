@@ -1,0 +1,65 @@
+/* Estilo geral do body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #444444;
+  }
+  
+  /* Container da página principal */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  /* Título principal */
+  h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Seção de gerenciamento */
+  h2 {
+    margin-bottom: 20px;
+    color: #afafaf;
+    font-size: 1.8rem;
+  }
+
+  p {
+    color: #ffffff;
+  }
+  
+  /* Botões de navegação */
+  button {
+    background-color: rgb(0, 153, 255); /* Verde */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Botão com hover */
+  button:hover {
+    background-color: rgb(0, 87, 145);
+  }
+  
+  /* Alinha os botões em uma linha */
+  button + button {
+    margin-left: 15px;
+  }
+  
+  /* Adiciona sombra e foco no botão */
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  

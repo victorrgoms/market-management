@@ -1,0 +1,36 @@
+CREATE TABLE MERCADO IMPLEMENTADO EM @QUERY
+CREATE TABLE CLIENTE IMPLEMENTADO EM @QUERY
+CREATE TABLE FUNCIONARIO IMPLEMENTADO EM @QUERY
+CREATE TABLE ATENDIMENTO IMPLEMENTADO EM @QUERY
+CREATE TABLE PRODUTO IMPLEMENTADO EM @QUERY
+CREATE TABLE COMPRA IMPLEMENTADO EM @QUERY
+CREATE TABLE HISTORICO_COMPRA IMPLEMENTADO EM @QUERY
+
+ Criar Função do Gatilho
+CREATE OR REPLACE FUNCTION funcao_historico_compra()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF TG_OP = 'INSERT' THEN
+        INSERT INTO HISTORICO_COMPRA (Id_Compra, Valor_Total, Forma_Pagam, Operacao)
+        VALUES (NEW.Id_Compra, NEW.Valor_Total, NEW.Forma_Pagam, 'INSERT');
+        RETURN NEW;
+
+    ELSIF TG_OP = 'UPDATE' THEN
+        INSERT INTO HISTORICO_COMPRA (Id_Compra, Valor_Total, Forma_Pagam, Operacao)
+        VALUES (NEW.Id_Compra, NEW.Valor_Total, NEW.Forma_Pagam, 'UPDATE');
+        RETURN NEW;
+
+    ELSIF TG_OP = 'DELETE' THEN
+        INSERT INTO HISTORICO_COMPRA (Id_Compra, Valor_Total, Forma_Pagam, Operacao)
+        VALUES (OLD.Id_Compra, OLD.Valor_Total, OLD.Forma_Pagam, 'DELETE');
+        RETURN OLD;
+    END IF;
+    RETURN NULL;  -- Garantir que a função sempre retorne algo.
+END;
+$$ LANGUAGE plpgsql;
+
+ Criar Gatilho
+CREATE TRIGGER trg_historico_compra
+AFTER INSERT OR UPDATE OR DELETE ON COMPRA
+FOR EACH ROW
+EXECUTE FUNCTION funcao_historico_compra();

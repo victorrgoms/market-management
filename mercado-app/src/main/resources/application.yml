@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: Mercado App
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mercado_db
+    username: usuario
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true

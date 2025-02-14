@@ -1,0 +1,89 @@
+/* Garante que o fundo ocupe 100% da altura da tela, mesmo com rolagem */
+.compras-container {
+  padding: 120px;
+  background-color: #444444;
+  min-height: 100vh; /* A altura mínima será 100% da altura da tela */
+  display: flex;
+  flex-direction: column;
+}
+
+.compras-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.add-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin-left: 0px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #acacac;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.compras-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto; /* Permite rolagem horizontal caso a tabela seja muito larga */
+}
+
+.compras-table th,
+.compras-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.compras-table th {
+  background-color: #333;
+  color: white;
+}
+
+.compras-table td {
+  background-color: #f9f9f9;
+}
+
+.compras-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.compras-actions button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.delete-button {
+  background-color: #DC3545;
+  color: white;
+}
+
+.edit-button {
+  background-color: #007BFF;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.no-compra-message {
+  text-align: center;
+  color: #777;
+  font-size: 1.2rem;
+}

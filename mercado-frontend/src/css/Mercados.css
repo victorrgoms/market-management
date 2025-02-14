@@ -1,0 +1,86 @@
+.mercados-container {
+    padding: 120px;
+    background-color: #444444;
+    height: 100%;
+  }
+  
+  .mercados-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  
+  .add-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #acacac;
+  }
+  
+  .add-button:hover {
+    background-color: #45a049;
+  }
+  
+  .mercados-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .mercado-item {
+    background-color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mercado-name {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 5px 0;
+  }
+  
+  .mercado-item p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  .delete-button,
+  .edit-button {
+    padding: 8px 16px;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .delete-button {
+    background-color: #DC3545;
+    color: white;
+  }
+  
+  .edit-button {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .no-mercado-message {
+    text-align: center;
+    color: #777;
+    font-size: 1.2rem;
+  }
+  

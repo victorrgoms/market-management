@@ -1,0 +1,77 @@
+/* Estilo global para os formulários de Adicionar e Editar Produto */
+.addproduto-container,
+.editproduto-container {
+  padding: 40px;
+  background-color: #444444;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addproduto-title,
+.editproduto-title {
+  font-size: 2.5rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.addproduto-form,
+.editproduto-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.addproduto-form div,
+.editproduto-form div {
+  margin-bottom: 15px;
+}
+
+.addproduto-form label,
+.editproduto-form label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.addproduto-form input,
+.editproduto-form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.addproduto-form input:focus,
+.editproduto-form input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.addproduto-form button,
+.editproduto-form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.addproduto-form button:hover,
+.editproduto-form button:hover {
+  background-color: #45a049;
+}
