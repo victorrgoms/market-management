@@ -24,7 +24,7 @@ public class Cliente {
 
     private Integer idadeClient;
 
-    // Relacionamento com Atendimento, permitindo exclusão em cascata
+    // Relacionamento com Atendimento, com exclusão em cascata
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore // Ignorar o campo na serialização para evitar loop infinito
     private List<Atendimento> atendimentos;

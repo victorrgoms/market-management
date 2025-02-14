@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getClientes, deleteClientes } from '../services/api';
+import { getClientes, deleteClientes, deleteAtendimento } from '../services/api';
 import { Link } from 'react-router-dom';
 import '../css/Clientes.css';
 
@@ -14,22 +14,33 @@ const Clientes = () => {
       .catch(error => console.error('Erro ao carregar clientes', error));
   }, []);
 
-  const handleDelete = (id) => {
-    deleteClientes(id)
-      .then(() => {
-        setClientes(clientes.filter(cliente => cliente.id !== id));
-      })
-      .catch(error => {
-        console.error('Erro ao excluir cliente', error);
-      });
+  const handleDelete = async (id) => {
+    try {
+      // Primeiro, exclui os atendimentos relacionados ao cliente
+      await deleteAtendimento(id); 
+  
+      // Depois, exclui o cliente
+      await deleteClientes(id);
+  
+      // Atualiza a lista de clientes no estado
+      setClientes(clientes.filter(cliente => cliente.id !== id));
+    } catch (error) {
+      console.error('Erro ao excluir cliente e atendimentos', error);
+    }
   };
+  
 
   return (
     <div className="clientes-container">
       <h1 className="clientes-title">Lista de Clientes</h1>
-      <Link to="/add-cliente">
-        <button className="add-button">Adicionar Cliente</button>
-      </Link>
+      <div className="buttons-add-back">
+        <Link to="/add-cliente">
+          <button className="add-button">Adicionar Cliente</button>
+        </Link>
+        <Link to ="/">
+          <button className="back-button">Voltar</button>
+        </Link>
+      </div>
 
       {clientes.length > 0 ? (
         <ul className="clientes-list">

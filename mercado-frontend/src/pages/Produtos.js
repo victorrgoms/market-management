@@ -29,9 +29,14 @@ const Produtos = () => {
   return (
     <div className="produtos-container">
       <h1 className="produtos-title">Lista de Produtos</h1>
-      <Link to="/add-produto">
-        <button className="add-button">Adicionar Produto</button>
-      </Link>
+        <div className="buttons-add-back">
+          <Link to="/add-produto">
+            <button className="add-button">Adicionar Produto</button>
+          </Link>
+          <Link to ="/">
+            <button className="back-button">Voltar</button>
+          </Link>
+        </div>
       {produtos.length > 0 ? (
         <table className="produtos-table">
           <thead>

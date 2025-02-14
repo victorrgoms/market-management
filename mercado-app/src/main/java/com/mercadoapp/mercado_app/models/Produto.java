@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -21,4 +22,8 @@ public class Produto {
 
     private String fornecedor;
     private Date dataVencimento;
+
+    // Relacionamento com Compra com exclusão em cascata
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Compra> compras;
 }

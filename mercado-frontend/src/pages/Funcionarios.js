@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getFuncionarios, deleteFuncionarios } from '../services/api';
+import { getFuncionarios, deleteFuncionarios, deleteAtendimento } from '../services/api';
 import { Link } from 'react-router-dom';
 import '../css/Funcionarios.css';
 
@@ -14,22 +14,33 @@ const Funcionarios = () => {
       .catch(error => console.error('Erro ao carregar funcionários', error));
   }, []);
 
-  const handleDelete = (id) => {
-    deleteFuncionarios(id)
-      .then(() => {
-        setFuncionarios(funcionarios.filter(funcionario => funcionario.id !== id));
-      })
-      .catch(error => {
-        console.error('Erro ao excluir funcionário', error);
-      });
+  const handleDelete = async (id) => {
+    try {
+      // Primeiro, exclui os atendimentos relacionados ao funcionário
+      await deleteAtendimento(id);
+  
+      // Depois, exclui o funcionário
+      await deleteFuncionarios(id);
+  
+      // Atualiza a lista de funcionários no estado
+      setFuncionarios(funcionarios.filter(funcionario => funcionario.id !== id));
+    } catch (error) {
+      console.error('Erro ao excluir funcionário e atendimentos', error);
+    }
   };
+  
 
   return (
     <div className="funcionarios-container">
       <h1 className="funcionarios-title">Lista de Funcionários</h1>
-      <Link to="/add-funcionario">
-        <button className="add-button">Adicionar Funcionário</button>
-      </Link>
+            <div className="buttons-add-back">
+              <Link to="/add-funcionario">
+                <button className="add-button">Adicionar Funcionario</button>
+              </Link>
+              <Link to ="/">
+                <button className="back-button">Voltar</button>
+              </Link>
+            </div>
 
       {funcionarios.length > 0 ? (
         <ul className="funcionarios-list">

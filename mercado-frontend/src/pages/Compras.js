@@ -30,9 +30,14 @@ const Compras = () => {
     <div className="compras-container">
       <h1 className="compras-title">Lista de Compras</h1>
 
-      <Link to="/add-compra">
-        <button className="add-button">Adicionar Compra</button>
-      </Link>
+      <div className="buttons-add-back">
+              <Link to="/add-compra">
+                <button className="add-button">Adicionar Compra</button>
+              </Link>
+              <Link to ="/">
+                <button className="back-button">Voltar</button>
+              </Link>
+            </div>
       <table className="compras-table">
         <thead>
           <tr>
